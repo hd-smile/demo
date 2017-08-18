@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .box{
+            width: 500px;
+            margin:200px auto;
+        }
+        input{
+            width: 400px;
+
+        }
+        ul{
+            width: 392px;
+            padding:5px;
+            list-style: none;
+            border:1px solid green;
+        }
+        li:hover{
+            background-color: yellow;
+        }
+        button{
+            width: 60px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text">
+        <button>搜索</button>
+    </div>
+    <script>
+        var arr = ["a","aab","abc","abcc","aa","aaa"];
+        var box = document.getElementsByTagName("div")[0];
+        var inp = box.children[0];
+        inp.oninput = function () {
+            var newArr = [];
+            for(var i=0;i<arr.length;i++){
+                var val = this.value;
+                if(arr[i].indexOf(val)===0){
+                    newArr.push("<li>"+arr[i]+"</li>");
+                }
+            }
+            var str = newArr.join("");
+
+            if(box.children[2]){
+                box.removeChild(box.children[2]);//Bug1.每次创建新的ul之前，先删除旧的ul
+            }
+            //Bug2.如果input中内容为空，不能生成ul,切断函数。
+            //Bug3.如果arr数组中没有以input为开头的元素(newarr=0)那么切断函数
+            if(this.value.length === 0 || newArr.length === 0){
+                return;
+            }
+            var ul = document.createElement("ul");
+            ul.innerHTML = str;
+            box.appendChild(ul);
+        }
+    </script>
+</body>
+</html>
