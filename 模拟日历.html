@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 800px;
+            margin: 200px auto;
+            color: #03C1DB;
+            text-align: center;
+            font: 700 30px/30px "微软雅黑";
+            background-color:#F4FBFC ;
+        }
+    </style>
+</head>
+<body>
+    <div> </div>
+    <script>
+
+        var date = new Date();   //创建日期对象
+        var year = date.getFullYear(); //年
+        var month = date.getMonth();  //月
+        var hao = date.getDate();    //日
+        var week = date.getDay();   //星期
+
+        var arr = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+        var div = document.getElementsByTagName("div")[0];
+        div.innerText = "今天是："+year+"年"+(month+1)+"月"+hao+"日 "+arr[week];
+
+    </script>
+</body>
+</html>
