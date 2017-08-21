@@ -35,22 +35,14 @@
     </div>
 
     <script>
-        //需求：点击图片，body的背景图修改。
-        //步骤：
-        //1.获取事件源
-        //2.绑定事件
-        //3.书写事件驱动程序
-
-        //1.获取事件源
-        var box = document.getElementsByTagName("div")[0];
-        //body的获取js内部帮我们优化完毕
+        //点击图片，body的背景图修改。
+        var box = document.getElementsByTagName("div")[0];   
         var body = document.body;
         var imgArr = box.children;
-        //2.绑定事件
+      
         for(var i=0;i<imgArr.length;i++){
             imgArr[i].index = i;
             imgArr[i].onclick = function () {
-                //3.书写事件驱动程序
                 //改body的背景
 //                body.style.backgroundImage = "url(image/"+(this.index+1)+".jpg)";
                 body.style.backgroundImage = "url("+this.src+")";

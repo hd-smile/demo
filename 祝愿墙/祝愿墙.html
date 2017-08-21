@@ -122,31 +122,26 @@
 </div>
 
 <script>
-    //需求：创建纸条（克隆盒子），然后随机位置，点击纸条的时候压住其他的纸条。
-    //思路：获取纸条，克隆，随机数值绑定到纸条上，添加到父盒子中，然后绑定事件层级最高。
-    //步骤：
-    //1.获取纸条，克隆
-    //2.随机数值绑定到纸条上
-    //3.添加到父盒子中
-    //4.然后绑定事件层级最高
-
-    //0.创建多张纸条
+    //创建纸条（克隆盒子），然后随机位置，点击纸条的时候压住其他的纸条
+    //思路：获取纸条，克隆，随机数值绑定到纸条上，添加到父盒子中，然后绑定事件层级最高
+	
+    //创建多张纸条
     for(var i=1;i<=10;i++){
-        //1.获取纸条，克隆
+        //获取纸条，克隆
         var tip = document.getElementById("tip");
         var content = document.getElementById("content");
         var newTip = tip.cloneNode(true);
         //问题：id问题。
         newTip.id = newTip.id+i;
-        //2.随机数值绑定到纸条上(top不要超过400，left不要超过700)
+        //随机数值绑定到纸条上(top不要超过400，left不要超过700)
         var topValue = parseInt(Math.random()*400);//(取值是0-1，那么乘以400,取值就是0-400)
         var leftValue = parseInt(Math.random()*700);//小数取整
         newTip.style.top = topValue+"px";
         newTip.style.left = leftValue+"px";
-        //3.添加到父盒子中
+        //添加到父盒子中
         content.appendChild(newTip);
 
-        //4.然后绑定事件层级最高
+        //然后绑定事件层级最高
         newTip.onclick = fn;
     }
     //tip本身有问题，没有绑定事件。（1.删除。   2.在绑定一次）
@@ -161,8 +156,6 @@
     }
 
 </script>
-
-
 
 </body>
 </html>
